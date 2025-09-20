@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1000 Apologies 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe6f0, #fce4ec);
+      font-family: 'Comic Neue', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    .apology {
+      font-size: 1.2rem;
+      padding: 0.7rem 1rem;
+      background-color: #ffe0eb;
+      color: #c2185b;
+      border-radius: 20px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      margin: 5px;
+      display: inline-block;
+      animation: floatUp 6s infinite ease-in-out;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    .apologies-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 95%;
+      padding: 2rem 0;
+    }
+    .sticker {
+      width: 180px;
+      margin: 20px auto;
+    }
+    .music-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #ff90b3;
+      border: none;
+      border-radius: 20px;
+      padding: 0.6rem 1rem;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+      animation: sparkleFloat 5s linear infinite;
+    }
+    @keyframes sparkleFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" src="Die-With-A-Smile.mp3" loop></audio>
+  <button class="music-toggle" id="toggle-music">🔇 Unmute</button>
+  <div class="apologies-container" id="apologies"></div>
+  <div class="sparkles" id="sparkle-container"></div>
+
+  <script>
+    const container = document.getElementById("apologies");
+    for (let i = 0; i < 1000; i++) {
+      const p = document.createElement("div");
+      p.className = "apology";
+      p.innerText = "I’m sorryyy babyy 💔🥺❤️";
+      container.appendChild(p);
+    }
+
+    const toggle = document.getElementById("toggle-music");
+    const music = document.getElementById("bg-music");
+
+    toggle.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggle.innerText = "🔈 Mute";
+      } else {
+        music.pause();
+        toggle.innerText = "🔇 Unmute";
+      }
+    });
+
+    // Sparkles
+    const sparkleContainer = document.getElementById('sparkle-container');
+    setInterval(() => {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.top = Math.random() * 100 + 'vh';
+      sparkle.style.width = sparkle.style.height = Math.random() * 15 + 10 + 'px';
+      sparkleContainer.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 6000);
+    }, 300);
+  </script>
+</body>
+</html>

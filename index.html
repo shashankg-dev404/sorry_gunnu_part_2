@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I’m Sorry, My Love 💔</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to bottom, #ffe6f0, #e0f7fa);
+      overflow: hidden;
+      color: #444;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      min-height: 100vh;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #c2185b;
+      animation: fadeIn 2s ease;
+    }
+    .love-letter {
+      font-size: 1.4rem;
+      max-width: 600px;
+      margin: 2rem 0;
+      line-height: 1.6;
+      animation: slideIn 2s ease;
+    }
+    .button {
+      background: #ffb6c1;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .button:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .heart {
+      position: fixed;
+      color: #ff99cc;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+      font-size: 20px;
+      z-index: 0;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+    <audio id="bg-music" src="im-sorry-original-lyrics-337786.mp3" loop></audio>
+    <button id="toggle-music" class="button" style="position:fixed;top:10px;right:10px;z-index:10;">🔇 Unmute</button>
+    <div class="container">
+    <h1>To My Sweetheart 💖</h1>
+    <p class="love-letter">
+      My cutuu, my sweetu, my darling, I'm truly sorry for everything. I never meant to hurt you. You mean the world to me, and I hope you can forgive me. I miss your smile, your laughter, and your warmth. Please maaf krdo na and I’ll do everything to make things right. 💔
+    </p>
+    <a href="page2.html" class="button">You can click here for more 😭❤️</a>
+    <a href="page3.html" class="button">You can Click here to read a note 💞💌</a>
+  </div>
+  <div class="hearts"></div>
+
+  <script>
+    const toggle = document.getElementById('toggle-music');
+    const music = document.getElementById('bg-music');
+
+    toggle.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        toggle.innerText = '🔈 Mute';
+      } else {
+        music.pause();
+        toggle.innerText = '🔇 Unmute';
+      }
+    });
+
+    // Floating heart animation
+    const heartContainer = document.querySelector('.hearts');
+    for (let i = 0; i < 60; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heart.innerHTML = '💗 💕 💝';
+      heartContainer.appendChild(heart);
+    }
+  </script>
+</body>
+</html>

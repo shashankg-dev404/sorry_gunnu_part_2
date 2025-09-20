@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Heartfelt Note 💌</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #e0f7fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .deep-note {
+      font-size: 2.8rem;
+      color: #e91e63;
+      background: #fff0f5;
+      padding: 2rem;
+      border-radius: 30px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+      animation: bounce 2s infinite;
+      position: relative;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+      animation: sparkleFloat 5s linear infinite;
+    }
+    @keyframes sparkleFloat {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" src="Die-With-A-Smile.mp3" loop></audio>
+  <button id="toggle-music" class="button" style="position:fixed;top:10px;right:10px;z-index:10;">🔇 Unmute</button>
+  <div class="deep-note">
+      I’m sorryyy babyy 💖🥺💔<br/>
+      I'm very very very very sorryyyy. Please maaf krdo is baar.<br/>
+      I know I always end up doing things like this but mai intentionally asa ni krna chahta tha.<br/> 
+      Idk beech beech me kya ho jata meko.<br/>
+      Mai bhul jata ki kaise behave karna chahiye.<br/>
+      Aage se ni karunga kabhi bhi asa i swear. <br/>
+      I’ll do anything to earn your trust and smile back. <br/>
+      I just loved talking to you and I'm really missing you rn.<br/>
+  </div>
+  <div class="sparkles" id="sparkle-container"></div>
+
+  <script>
+    const toggle = document.getElementById('toggle-music');
+    const music = document.getElementById('bg-music');
+
+    toggle.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        toggle.innerText = '🔈 Mute';
+      } else {
+        music.pause();
+        toggle.innerText = '🔇 Unmute';
+      }
+    });
+
+    const sparkleContainer = document.getElementById('sparkle-container');
+    setInterval(() => {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = Math.random() * 100 + 'vw';
+      sparkle.style.top = Math.random() * 100 + 'vh';
+      sparkle.style.width = sparkle.style.height = Math.random() * 15 + 10 + 'px';
+      sparkleContainer.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 6000);
+    }, 300);
+  </script>
+</body>
+</html>

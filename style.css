@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to bottom, #ffe6f0, #e0f7fa);
+  overflow-x: hidden;
+  color: #444;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #c2185b;
+  animation: fadeIn 2s ease;
+}
+
+.love-letter {
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin: 2rem 0;
+  line-height: 1.6;
+  animation: slideIn 2s ease;
+}
+
+.button {
+  background: #ffb6c1;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes slideIn {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.page2 {
+  background: linear-gradient(to right, #ffe6f0, #fff5f9);
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.flood {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.apology {
+  font-size: 1rem;
+  color: #ff3366;
+  background-color: #fff0f5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 600px) {
+  .message {
+    font-size: 1rem;
+  }
+  button {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .apology {
+    font-size: 0.9rem;
+  }
+}
